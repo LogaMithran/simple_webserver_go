@@ -1,0 +1,34 @@
+POST http://localhost:8080/form
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+User-Agent: IntelliJ HTTP Client/GoLand 2024.2.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 155
+
+--WebAppBoundary
+Content-Disposition: form-data; name="username"
+
+mithran
+--WebAppBoundary--
+
+--WebAppBoundary
+Content-Disposition: form-data; name="mobile_number"
+
+808080
+--WebAppBoundary--
+
+
+###
+GET http://localhost:8080/hello
+Accept: application/json
+
+###
+# Not Found
+POST http://localhost:8080/hello
+Content-Type: application/json
+
+{
+  "sample": "sampletext"
+}
+
+
