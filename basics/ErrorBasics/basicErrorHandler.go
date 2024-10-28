@@ -1,0 +1,5 @@
+package ErrorBasics
+
+func BasicErrorHandler() {
+
+}
