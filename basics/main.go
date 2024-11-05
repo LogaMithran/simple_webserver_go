@@ -1,9 +1,12 @@
 package main
 
-import "basics/ErrorBasics"
+import "basics/concurrency"
 
 func main() {
-	ErrorBasics.CalculateError()
-	ErrorBasics.DeferBasics()
-	ErrorBasics.PanicBasics()
+	//ErrorBasics.CalculateError()
+	//ErrorBasics.DeferBasics()
+	//ErrorBasics.PanicBasics()
+	//concurrency.Start()
+	//concurrency.StartMutex()
+	concurrency.RaceCondition()
 }
