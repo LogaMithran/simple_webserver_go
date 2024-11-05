@@ -7,5 +7,6 @@ func main() {
 	//ErrorBasics.DeferBasics()
 	//ErrorBasics.PanicBasics()
 	//concurrency.Start()
-	concurrency.StartMutex()
+	//concurrency.StartMutex()
+	concurrency.RaceCondition()
 }
