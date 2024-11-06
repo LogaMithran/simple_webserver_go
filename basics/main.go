@@ -8,5 +8,7 @@ func main() {
 	//ErrorBasics.PanicBasics()
 	//concurrency.Start()
 	//concurrency.StartMutex()
-	concurrency.RaceCondition()
+	//concurrency.RaceCondition()
+
+	concurrency.TestChannel()
 }
