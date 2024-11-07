@@ -2,10 +2,16 @@ package main
 
 import (
 	"fmt"
-	"power-sync/people"
+	"os"
+	"power-sync/router"
 )
 
 func main() {
-	fmt.Println("Started syncing people from SWAPI...")
-	people.StartSyncingPeople()
+	r := router.SetupRouter()
+
+	if err := r.Run("localhost:8080"); err != nil {
+		fmt.Println("Error in starting the server")
+		fmt.Println(err)
+		os.Exit(1)
+	}
 }
