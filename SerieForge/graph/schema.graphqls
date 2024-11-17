@@ -1,0 +1,73 @@
+# -----------------------------------------------------------------------------------------------------------
+# Types
+type Series{
+    Id: String!
+    Title: String!
+    Description: String
+    ReleaseDate: String
+    EndDate: String
+    SeasonCount: Int
+    EpisodeCount: Int
+    Status: String
+    Rating: Float
+    Creators: String
+    Cast: String
+    CreatedAt: String
+    UpdatedAt: String
+}
+
+type Season {
+    id: String!
+    seasonName: String
+    episodes: Episode!
+}
+
+type Episode{
+    id: String!
+    episodeNo: Int
+    description: String
+}
+# -----------------------------------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------------------------------------
+# Inputs
+input SeriesInput{
+    Title: String!
+    Description: String!
+    ReleaseDate: String!
+    EndDate: String!
+    SeasonCount: Int!
+    EpisodeCount: Int!
+    Status: String!
+    Rating: Float!
+    Creators: String!
+    Cast: String!
+}
+
+input SeasonInput{
+    seasonNumber: Int!
+    episodes: EpisodeInput!
+}
+
+input EpisodeInput{
+    episodeNumber: Int!
+    episodeName: String!
+}
+input SeriesFilter{
+    name: String
+}
+# -----------------------------------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------------------------------------
+# Query
+type Query{
+    series(input:SeriesFilter): [Series!]!
+}
+# -----------------------------------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------------------------------------
+# Mutation
+type Mutation{
+    createSeries(input: SeriesInput!): Series
+}
+# -----------------------------------------------------------------------------------------------------------
