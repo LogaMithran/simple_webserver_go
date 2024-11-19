@@ -3,6 +3,7 @@ package concurrency
 import (
 	"fmt"
 	"net/http"
+	_ "net/http/pprof"
 	"sync"
 	"time"
 )
@@ -10,6 +11,9 @@ import (
 var wg sync.WaitGroup
 
 func Start() {
+	go func() {
+		http.ListenAndServe("localhost:8080", nil)
+	}()
 	starWarsApi := []string{
 		"https://swapi.dev/api/people/1",
 		"https://swapi.dev/api/people/2",
@@ -22,10 +26,13 @@ func Start() {
 	defer func() {
 		fmt.Println(time.Since(t))
 	}()
+	i := 1
 	for api := range starWarsApi {
+		wg.Add(i)
+		i++
 		go genericFuncForCallingApi(starWarsApi[api])
 	}
-	wg.Add(-1)
+
 	wg.Wait()
 }
 
